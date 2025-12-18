@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Plateforme A5 — Propulsée par TNT Logics</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #0f172a;
+            --accent: #0d9488;
+            --accent-dark: #0f766e;
+            --accent-light: #ccfbf1;
+            --accent-lighter: #f0fdfa;
+            --light-bg: #f8fafc;
+            --border: #e2e8f0;
+            --text: #334155;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --success: #16a34a;
+            --warning: #ea580c;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--white);
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 48px 40px;
+        }
+        
+        /* Header */
+        .header {
+            margin-bottom: 40px;
+            padding-bottom: 32px;
+            border-bottom: 3px solid var(--accent);
+        }
+        
+        .header .eyebrow {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        
+        .header h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        
+        .header .subtitle {
+            font-size: 16px;
+            color: var(--text);
+            font-weight: 400;
+        }
+        
+        .header .subtitle strong {
+            color: var(--accent);
+        }
+        
+        /* Vision block */
+        .vision-block {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
+            color: var(--white);
+            padding: 32px 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+        
+        .vision-block .quote {
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        
+        .vision-block .quote em {
+            color: var(--accent-light);
+            font-style: normal;
+        }
+        
+        .vision-block .subtext {
+            font-size: 14px;
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+        
+        .intro {
+            font-size: 15px;
+            color: var(--text);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+        
+        .intro strong {
+            color: var(--primary);
+        }
+        
+        /* Section headers */
+        h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 40px 0 16px 0;
+        }
+        
+        h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent);
+            margin: 24px 0 12px 0;
+        }
+        
+        p {
+            margin-bottom: 12px;
+        }
+        
+        /* Context grid */
+        .context-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            background: var(--light-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+        
+        .context-item {
+            padding: 16px 20px;
+            border-right: 1px solid var(--border);
+        }
+        
+        .context-item:last-child {
+            border-right: none;
+        }
+        
+        .context-item .label {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+        
+        .context-item .value {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .savings-callout {
+            text-align: right;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 32px;
+        }
+        
+        /* Flow diagram */
+        .flow-container {
+            margin: 24px 0;
+        }
+        
+        .flow-header {
+            display: grid;
+            grid-template-columns: 1fr auto 1.2fr auto 1fr auto 0.8fr;
+            gap: 0;
+            margin-bottom: 8px;
+        }
+        
+        .flow-header .step {
+            padding: 12px 16px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--white);
+            border-radius: 6px;
+        }
+        
+        .flow-header .step.data { background: var(--primary); }
+        .flow-header .step.ai { background: var(--accent); }
+        .flow-header .step.action { background: var(--primary); }
+        .flow-header .step.result { background: var(--success); }
+        
+        .flow-header .arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--accent);
+            padding: 0 8px;
+        }
+        
+        .flow-body {
+            display: grid;
+            grid-template-columns: 1fr auto 1.2fr auto 1fr auto 0.8fr;
+            gap: 0;
+            background: var(--light-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px 0;
+        }
+        
+        .flow-body .step-content {
+            padding: 0 16px;
+            text-align: center;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        
+        .flow-body .arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--accent);
+        }
+        
+        /* Example box */
+        .example-box {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        
+        .example-box .row {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .example-box .row:last-child {
+            border-bottom: none;
+        }
+        
+        .example-box .label {
+            background: var(--accent-light);
+            padding: 12px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .example-box .content {
+            padding: 12px 16px;
+            font-size: 13px;
+        }
+        
+        .example-box .content strong {
+            color: var(--primary);
+        }
+        
+        /* Differentiator callout */
+        .differentiator {
+            background: var(--accent-lighter);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            padding: 20px 24px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--primary);
+            margin: 24px 0;
+            line-height: 1.6;
+        }
+        
+        .differentiator em {
+            color: var(--accent);
+            font-style: normal;
+            font-weight: 600;
+        }
+        
+        /* Dashboard mockup */
+        .dashboard {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 24px 0;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+        
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            background: var(--white);
+            border-bottom: 3px solid var(--accent);
+        }
+        
+        .dashboard-header .logo {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .dashboard-header .logo span {
+            color: var(--accent);
+        }
+        
+        .dashboard-header .location {
+            font-size: 14px;
+            color: var(--text);
+        }
+        
+        .dashboard-header .date {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+        
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            background: var(--light-bg);
+        }
+        
+        .kpi-card {
+            padding: 20px;
+            text-align: center;
+            border-right: 1px solid var(--border);
+        }
+        
+        .kpi-card:last-child {
+            border-right: none;
+        }
+        
+        .kpi-card .value {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .kpi-card .value.accent { color: var(--accent); }
+        .kpi-card .value.primary { color: var(--primary); }
+        .kpi-card .value.success { color: var(--success); }
+        
+        .kpi-card .label {
+            font-size: 11px;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+        
+        .kpi-card .delta {
+            font-size: 11px;
+        }
+        
+        .kpi-card .delta.positive { color: var(--success); }
+        .kpi-card .delta.neutral { color: var(--text-light); }
+        .kpi-card .delta.accent { color: var(--accent); }
+        
+        .ai-alert {
+            background: var(--accent-dark);
+            color: var(--white);
+            padding: 16px 24px;
+        }
+        
+        .ai-alert-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .ai-alert-header .title {
+            font-size: 13px;
+            font-weight: 700;
+        }
+        
+        .ai-alert-header .time {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        
+        .ai-alert-body {
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        
+        .ai-alert-body strong {
+            color: var(--white);
+        }
+        
+        .ai-alert-actions {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        
+        .ai-alert-actions a {
+            color: var(--accent-light);
+            text-decoration: underline;
+            margin-right: 16px;
+        }
+        
+        .schedule-table {
+            width: 100%;
+            background: var(--white);
+        }
+        
+        .schedule-table th {
+            background: var(--primary);
+            color: var(--white);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 12px 16px;
+            text-align: left;
+        }
+        
+        .schedule-table th:not(:first-child) {
+            text-align: center;
+        }
+        
+        .schedule-table td {
+            padding: 12px 16px;
+            font-size: 13px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .schedule-table td:not(:first-child) {
+            text-align: center;
+        }
+        
+        .schedule-table tr.highlight {
+            background: #fff7ed;
+        }
+        
+        .schedule-table .suggested {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .schedule-table .status-ok {
+            color: var(--success);
+        }
+        
+        .schedule-table .status-warning {
+            color: var(--warning);
+        }
+        
+        .mockup-caption {
+            font-size: 12px;
+            color: var(--text-light);
+            font-style: italic;
+            margin-top: 12px;
+        }
+        
+        /* Comparison table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .comparison-table th {
+            padding: 14px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--white);
+        }
+        
+        .comparison-table th:first-child {
+            background: var(--text-light);
+            border-radius: 8px 0 0 0;
+        }
+        
+        .comparison-table th:last-child {
+            background: var(--accent);
+            border-radius: 0 8px 0 0;
+        }
+        
+        .comparison-table td {
+            padding: 14px 16px;
+            font-size: 13px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .comparison-table td:first-child {
+            background: var(--light-bg);
+        }
+        
+        .comparison-table td:last-child {
+            background: var(--accent-light);
+        }
+        
+        .comparison-table td strong {
+            color: var(--primary);
+        }
+        
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .data-table th {
+            background: var(--primary);
+            color: var(--white);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 12px 16px;
+            text-align: left;
+        }
+        
+        .data-table td {
+            padding: 12px 16px;
+            font-size: 13px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .data-table tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+        
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* Accent table header */
+        .data-table.accent th {
+            background: var(--accent);
+        }
+        
+        /* Pilot highlight */
+        .data-table tr.pilot-row {
+            background: var(--accent-light) !important;
+        }
+        
+        /* Two column layout */
+        .two-col-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .two-col-table th {
+            background: var(--accent);
+            color: var(--white);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 12px 16px;
+            text-align: left;
+        }
+        
+        .two-col-table.primary-header th {
+            background: var(--primary);
+        }
+        
+        .two-col-table td {
+            padding: 12px 16px;
+            font-size: 13px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .two-col-table td:first-child {
+            font-weight: 600;
+            width: 180px;
+            background: var(--light-bg);
+        }
+        
+        .two-col-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* Criteria table - 4 columns */
+        .criteria-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .criteria-table th {
+            background: var(--primary);
+            color: var(--white);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 12px 14px;
+            text-align: left;
+        }
+        
+        .criteria-table th:nth-child(3),
+        .criteria-table th:nth-child(4) {
+            text-align: center;
+        }
+        
+        .criteria-table td {
+            padding: 12px 14px;
+            font-size: 12px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+        
+        .criteria-table td:nth-child(3),
+        .criteria-table td:nth-child(4) {
+            text-align: center;
+        }
+        
+        .criteria-table tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+        
+        /* Note/caption */
+        .note {
+            font-size: 12px;
+            color: var(--text-light);
+            font-style: italic;
+            margin: 8px 0 20px 0;
+        }
+        
+        /* Next steps table */
+        .next-steps-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .next-steps-table th {
+            background: var(--primary);
+            color: var(--white);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 12px 16px;
+            text-align: left;
+        }
+        
+        .next-steps-table th:first-child,
+        .next-steps-table th:nth-child(3),
+        .next-steps-table th:last-child {
+            text-align: center;
+        }
+        
+        .next-steps-table td {
+            padding: 12px 16px;
+            font-size: 13px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .next-steps-table td:first-child,
+        .next-steps-table td:nth-child(3),
+        .next-steps-table td:last-child {
+            text-align: center;
+        }
+        
+        .next-steps-table tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+        
+        /* Footer */
+        .footer {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        
+        .footer .brand {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+        
+        .footer .brand strong {
+            color: var(--primary);
+        }
+        
+        .footer .contact {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+        
+        /* Page breaks for print */
+        @media print {
+            .page-break {
+                page-break-before: always;
+            }
+        }
+        
+        .page-break {
+            margin-top: 48px;
+            padding-top: 48px;
+            border-top: 1px solid var(--border);
+        }
+        
+        /* Bottom line callout */
+        .bottom-line {
+            background: var(--primary);
+            color: var(--white);
+            padding: 24px 32px;
+            border-radius: 8px;
+            margin: 32px 0;
+            text-align: center;
+        }
+        
+        .bottom-line .headline {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .bottom-line .subtext {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .bottom-line .subtext em {
+            color: var(--accent-light);
+            font-style: normal;
+        }
+        
+        /* Feature tables for on-demand section */
+        .feature-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0 24px 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .feature-table th {
+            background: var(--light-bg);
+            color: var(--text);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 10px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .feature-table td {
+            padding: 12px 14px;
+            font-size: 13px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+        
+        .feature-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .feature-table tr:hover {
+            background: var(--accent-lighter);
+        }
+        
+        .feature-note {
+            background: var(--accent-lighter);
+            border-left: 4px solid var(--accent);
+            padding: 16px 20px;
+            margin-top: 24px;
+            font-size: 13px;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="eyebrow">Projet Pilote · 180 Jours</div>
+            <h1>La Plateforme A5</h1>
+            <div class="subtitle">Votre intelligence opérationnelle — <strong>propulsée par TNT Logics</strong></div>
+        </div>
+        
+        <!-- Vision block -->
+        <div class="vision-block">
+            <div class="quote">
+                Vos compétiteurs achètent du software.<br>
+                Vous, vous construisez de <em>l'intelligence</em>.
+            </div>
+            <div class="subtext">
+                Chaque shift optimisé. Chaque dollar tracké. Chaque décision informée par vos propres données — pas des benchmarks génériques. C'est pas un outil qu'on vous vend. C'est un avantage compétitif qu'on bâtit ensemble.
+            </div>
+        </div>
+        
+        <!-- Context -->
+        <h2>Votre Réalité Aujourd'hui</h2>
+        
+        <div class="context-grid">
+            <div class="context-item">
+                <div class="label">Revenus annuels</div>
+                <div class="value">85 M$</div>
+            </div>
+            <div class="context-item">
+                <div class="label">Établissements</div>
+                <div class="value">30+</div>
+            </div>
+            <div class="context-item">
+                <div class="label">Employés</div>
+                <div class="value">1 350</div>
+            </div>
+            <div class="context-item">
+                <div class="label">Masse salariale</div>
+                <div class="value">25-30 M$</div>
+            </div>
+        </div>
+        
+        <div class="context-grid">
+            <div class="context-item">
+                <div class="label">Ratio actuel</div>
+                <div class="value">34%</div>
+            </div>
+            <div class="context-item">
+                <div class="label">Objectif</div>
+                <div class="value">30%</div>
+            </div>
+            <div class="context-item" style="grid-column: span 2;">
+                <div class="label">Économies potentielles</div>
+                <div class="value" style="color: var(--accent);">2,55 M$ / an</div>
+            </div>
+        </div>
+        
+        <!-- How it works -->
+        <h2>Comment Ça Marche — Concrètement</h2>
+        <p>La question qu'on nous pose : <em>« Comment on passe de 34% à 30%? »</em></p>
+        
+        <div class="flow-container">
+            <div class="flow-header">
+                <div class="step data">VOS DONNÉES</div>
+                <div class="arrow">→</div>
+                <div class="step ai">INTELLIGENCE A5</div>
+                <div class="arrow">→</div>
+                <div class="step action">ACTION GÉRANT</div>
+                <div class="arrow">→</div>
+                <div class="step result">RÉSULTAT</div>
+            </div>
+            <div class="flow-body">
+                <div class="step-content">
+                    Réservations OpenTable<br>
+                    Ventes Veloce<br>
+                    Disponibilités employés
+                </div>
+                <div class="arrow">→</div>
+                <div class="step-content">
+                    Analyse en temps réel<br>
+                    Prévisions par créneau<br>
+                    Staffing optimal calculé
+                </div>
+                <div class="arrow">→</div>
+                <div class="step-content">
+                    Le gérant reçoit:<br>
+                    <strong>« 6 serveurs prévus,<br>4 suffisent »</strong>
+                </div>
+                <div class="arrow">→</div>
+                <div class="step-content">
+                    <strong>Heures<br>économisées<br>= $ sauvés</strong>
+                </div>
+            </div>
+        </div>
+        
+        <h3>Exemple: Phillips Bar, Mardi Soir</h3>
+        
+        <div class="example-box">
+            <div class="row">
+                <div class="label">Situation</div>
+                <div class="content">Mardi 18h-22h — shift typique</div>
+            </div>
+            <div class="row">
+                <div class="label">Données</div>
+                <div class="content">12 réservations OpenTable + historique ventes mardi = <strong>~45 couverts prévus</strong></div>
+            </div>
+            <div class="row">
+                <div class="label">Intelligence A5</div>
+                <div class="content">Staffing optimal: <strong>4 serveurs</strong> (vs 6 habituellement schedulés)</div>
+            </div>
+            <div class="row">
+                <div class="label">Économie</div>
+                <div class="content">2 shifts × 4h × 18$/h = <strong>144$ ce soir-là</strong></div>
+            </div>
+            <div class="row">
+                <div class="label">Sur 1 an</div>
+                <div class="content">3 établissements × 250 jours × ajustements similaires = <strong>~108K$ récupérés</strong></div>
+            </div>
+        </div>
+        
+        <div class="differentiator">
+            <strong>Ce qui change tout:</strong> La plateforme <em>apprend</em> de vos 30 établissements et <em>agit</em> — elle envoie des recommandations aux gérants avant qu'ils ne réalisent qu'il y a un problème. Pas des dashboards à surveiller. Des décisions à prendre.
+        </div>
+        
+        <!-- Dashboard mockup -->
+        <div class="page-break">
+            <h2>Votre Tableau de Bord — Vue Gérant</h2>
+            <p>Ce que vos gérants voient chaque jour</p>
+            
+            <div class="dashboard">
+                <div class="dashboard-header">
+                    <div class="logo">Plateforme <span>A5</span></div>
+                    <div class="location">Phillips Bar - Centre-ville</div>
+                    <div class="date">Mardi 14 jan. 2025</div>
+                </div>
+                
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="value accent">28.4%</div>
+                        <div class="label">Ratio Main-d'œuvre</div>
+                        <div class="delta positive">▼ 2.1% vs sem. dern.</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="value primary">$4,280</div>
+                        <div class="label">Coût Labor Aujourd'hui</div>
+                        <div class="delta neutral">Budget: $4,500</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="value primary">42</div>
+                        <div class="label">Réservations ce soir</div>
+                        <div class="delta accent">+8 vs mardi typique</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="value success">94%</div>
+                        <div class="label">Précision Prévisions</div>
+                        <div class="delta neutral">30 derniers jours</div>
+                    </div>
+                </div>
+                
+                <div class="ai-alert">
+                    <div class="ai-alert-header">
+                        <div class="title">💡 RECOMMANDATION</div>
+                        <div class="time">18h-22h</div>
+                    </div>
+                    <div class="ai-alert-body">
+                        Basé sur 42 réservations + historique, <strong>4 serveurs suffisent</strong> (6 prévus).<br>
+                        Économie potentielle: <strong>144$</strong> si vous libérez 2 serveurs.
+                    </div>
+                    <div class="ai-alert-actions">
+                        <a href="#">Appliquer</a>
+                        <a href="#">Ignorer</a>
+                        <a href="#">Voir le détail</a>
+                    </div>
+                </div>
+                
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Shift</th>
+                            <th>Prévu</th>
+                            <th>Recommandé</th>
+                            <th>Statut</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>11h-15h (Lunch)</td>
+                            <td>3 serveurs</td>
+                            <td>3 serveurs</td>
+                            <td class="status-ok">✓ Optimal</td>
+                        </tr>
+                        <tr class="highlight">
+                            <td>17h-22h (Dîner)</td>
+                            <td>6 serveurs</td>
+                            <td class="suggested">4 serveurs</td>
+                            <td class="status-warning">⚠ Sureffectif</td>
+                        </tr>
+                        <tr>
+                            <td>17h-23h (Bar)</td>
+                            <td>2 barmen</td>
+                            <td>2 barmen</td>
+                            <td class="status-ok">✓ Optimal</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <p class="mockup-caption">Maquette conceptuelle — l'interface finale sera co-développée avec l'équipe A5</p>
+        </div>
+        
+        <!-- Comparison -->
+        <h3>Pourquoi c'est différent</h3>
+        
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Software traditionnel</th>
+                    <th>La Plateforme A5</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Vous créez les horaires manuellement</td>
+                    <td><strong>Recommandations générées</strong> automatiquement</td>
+                </tr>
+                <tr>
+                    <td>Dashboards à surveiller</td>
+                    <td><strong>Alertes proactives</strong> envoyées aux gérants</td>
+                </tr>
+                <tr>
+                    <td>Même logiciel pour tout le monde</td>
+                    <td><strong>Apprend de vos 30 établissements</strong></td>
+                </tr>
+                <tr>
+                    <td>Vous vous adaptez au système</td>
+                    <td><strong>Le système s'adapte à Veloce, OpenTable, A5</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Agents -->
+        <div class="page-break">
+            <h2>1. Ce Qu'on Déploie — Phase 1</h2>
+            
+            <h3>Module #1 : Planification Prédictive</h3>
+            <p>Génère des recommandations de staffing basées sur vos données en temps réel.</p>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Fonctionnalité</th>
+                        <th>Description</th>
+                        <th>Livrable</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Intégration Veloce POS</td>
+                        <td>Connexion API — ventes historiques par créneau horaire</td>
+                        <td>Données synchronisées</td>
+                    </tr>
+                    <tr>
+                        <td>Intégration OpenTable</td>
+                        <td>Synchronisation des réservations en temps réel</td>
+                        <td>Prévisions par shift</td>
+                    </tr>
+                    <tr>
+                        <td>Moteur de prévision</td>
+                        <td>Historique + réservations = staffing optimal suggéré</td>
+                        <td>Recommandations quotidiennes</td>
+                    </tr>
+                    <tr>
+                        <td>Règles A5</td>
+                        <td>Vos seuils : ratio cible, alertes OT, couverture minimum</td>
+                        <td>Alertes automatiques</td>
+                    </tr>
+                    <tr>
+                        <td>Push-back suggestions</td>
+                        <td>Réduction d'effectif si ventes < prévisions</td>
+                        <td>Notifications gérant</td>
+                    </tr>
+                    <tr>
+                        <td>Tableau de bord</td>
+                        <td>Interface pour visualiser et approuver les horaires</td>
+                        <td>Accès 3 établissements</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Module #2 : Suivi Performance Temps Réel</h3>
+            <p>Monitore vos coûts de main-d'œuvre et alerte proactivement en cas de dépassement.</p>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Fonctionnalité</th>
+                        <th>Description</th>
+                        <th>Livrable</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ratio live</td>
+                        <td>Ventes POS ÷ heures travaillées = ratio temps réel</td>
+                        <td>Dashboard central</td>
+                    </tr>
+                    <tr>
+                        <td>Benchmarking A5</td>
+                        <td>Ranking de vos établissements par performance</td>
+                        <td>Classement hebdomadaire</td>
+                    </tr>
+                    <tr>
+                        <td>Alertes intelligentes</td>
+                        <td>Notification proactive si ratio > seuil</td>
+                        <td>Slack / courriel</td>
+                    </tr>
+                    <tr>
+                        <td>Scorecard gérant</td>
+                        <td>Performance individuelle avec tendances</td>
+                        <td>Rapport hebdomadaire</td>
+                    </tr>
+                    <tr>
+                        <td>Variance horaire</td>
+                        <td>Écart heures planifiées vs réelles</td>
+                        <td>Analyse quotidienne</td>
+                    </tr>
+                    <tr>
+                        <td>Projection</td>
+                        <td>Estimation ratio fin de semaine</td>
+                        <td>Prévision rolling</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Pilot terms -->
+        <div class="page-break">
+            <h2>2. Le Pilote — 180 Jours</h2>
+            
+            <table class="two-col-table">
+                <thead>
+                    <tr>
+                        <th>Paramètre</th>
+                        <th>Détail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Durée</td>
+                        <td><strong>180 jours</strong> (6 mois)</td>
+                    </tr>
+                    <tr>
+                        <td>Établissements</td>
+                        <td>3 (sélection conjointe — mix performance/géographie recommandé)</td>
+                    </tr>
+                    <tr>
+                        <td>Si succès</td>
+                        <td>100% crédité sur l'abonnement Année 1</td>
+                    </tr>
+                    <tr>
+                        <td>Si non-succès</td>
+                        <td>Vous gardez l'accès jusqu'à la fin des 180 jours, sans obligation</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Options de Paiement</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Option</th>
+                        <th style="text-align: center;">Montant</th>
+                        <th>Détail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="pilot-row">
+                        <td><strong>Paiement unique</strong></td>
+                        <td style="text-align: center;"><strong>2 700 $</strong></td>
+                        <td>Payable au démarrage — économie de 10%</td>
+                    </tr>
+                    <tr>
+                        <td>Paiement mensuel</td>
+                        <td style="text-align: center;">500 $ × 6 mois</td>
+                        <td>3 000 $ total — flexibilité maximale</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Critères de Succès — Comment On Mesure</h3>
+            <p>Le pilote est réussi si <strong>au moins un</strong> des critères suivants est atteint :</p>
+            
+            <table class="criteria-table">
+                <thead>
+                    <tr>
+                        <th style="width: 22%;">Critère</th>
+                        <th style="width: 32%;">Ce qu'on mesure</th>
+                        <th style="width: 18%;">Seuil</th>
+                        <th style="width: 28%;">Comment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Précision des prévisions</strong></td>
+                        <td>Staffing suggéré vs staffing réel optimal</td>
+                        <td><strong>≥ 80%</strong></td>
+                        <td>Gérant valide chaque suggestion ("correct" / "à ajuster") — tracké hebdo</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Visibilité livrée</strong></td>
+                        <td>Dashboard live avec données < 24h</td>
+                        <td><strong>100%</strong></td>
+                        <td>Veloce + OpenTable visibles en temps réel pour les 3 établissements</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Adoption gérant</strong></td>
+                        <td>Connexions au tableau de bord</td>
+                        <td><strong>≥ 24 sessions</strong></td>
+                        <td>Sur 12 semaines (≈2/semaine) — tracké par analytics</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p class="note">Note : La réduction du ratio main-d'œuvre dépend des décisions des gérants. On livre l'intelligence et les recommandations — l'exécution appartient à A5.</p>
+            
+            <h3>Clause de Contingence</h3>
+            <p>Si l'API Veloce ne permet pas l'accès aux données requises (ventes par créneau, heures travaillées), la portée sera ajustée conjointement et le calendrier prolongé sans frais additionnels.</p>
+            
+            <h2>3. Tarification Post-Pilote</h2>
+            <p>Une fois le pilote validé — grille progressive selon le déploiement.</p>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Établissements</th>
+                        <th style="text-align: center;">Mensuel</th>
+                        <th style="text-align: center;">Par établissement</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>3</td>
+                        <td style="text-align: center;">1 200 $</td>
+                        <td style="text-align: center;">400 $</td>
+                        <td>Post-pilote</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td style="text-align: center;">1 800 $</td>
+                        <td style="text-align: center;">300 $</td>
+                        <td>Déploiement initial</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td style="text-align: center;">3 000 $</td>
+                        <td style="text-align: center;">200 $</td>
+                        <td>Mi-déploiement</td>
+                    </tr>
+                    <tr class="pilot-row">
+                        <td><strong>30+</strong></td>
+                        <td style="text-align: center;"><strong>4 500 $</strong></td>
+                        <td style="text-align: center;"><strong>150 $</strong></td>
+                        <td><strong>Déploiement complet</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p class="note">À 30+ établissements, le coût par location est comparable aux SaaS traditionnels — mais vous possédez une plateforme qui apprend de <em>vos</em> données, pas un logiciel générique.</p>
+            
+            <h2>4. Échéancier</h2>
+            
+            <table class="data-table accent">
+                <thead>
+                    <tr>
+                        <th style="text-align: center; width: 100px;">Mois</th>
+                        <th style="width: 140px;">Phase</th>
+                        <th>Livrables</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: center;">1</td>
+                        <td>Intégration</td>
+                        <td>Connexion APIs Veloce + OpenTable, import données historiques, validation accès</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">2</td>
+                        <td>Configuration</td>
+                        <td>Règles A5 (seuils, alertes), formation gérants pilotes, dashboard v1</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">3-4</td>
+                        <td>Opération</td>
+                        <td>Plateforme en production, itérations hebdomadaires basées sur feedback</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">5-6</td>
+                        <td>Optimisation</td>
+                        <td>Affinage des prévisions, rapport de performance, décision go/no-go</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Commitments -->
+        <div class="page-break">
+            <h2>5. Engagements Mutuels</h2>
+            
+            <h3>Ce qu'on attend de A5</h3>
+            
+            <table class="two-col-table primary-header">
+                <thead>
+                    <tr>
+                        <th>Élément</th>
+                        <th>Détail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Atelier hebdo</td>
+                        <td>1 heure / semaine — revue métriques, feedback, ajustements</td>
+                    </tr>
+                    <tr>
+                        <td>Participants</td>
+                        <td>Magali (finance), Vincent (ops), 1 gérant pilote</td>
+                    </tr>
+                    <tr>
+                        <td>Accès systèmes</td>
+                        <td>API Veloce, OpenTable, export paie (3 établissements)</td>
+                    </tr>
+                    <tr>
+                        <td>Feedback terrain</td>
+                        <td>Gérants valident les suggestions ("correct" / "à ajuster")</td>
+                    </tr>
+                    <tr>
+                        <td>Réactivité</td>
+                        <td>48h max pour questions techniques / accès données</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Ce qu'on s'engage à livrer</h3>
+            
+            <table class="two-col-table">
+                <thead>
+                    <tr>
+                        <th>Élément</th>
+                        <th>Détail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Livraison</td>
+                        <td>Plateforme opérationnelle en <strong>4 semaines</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Support</td>
+                        <td>Assistance prioritaire pendant tout le pilote</td>
+                    </tr>
+                    <tr>
+                        <td>Reporting</td>
+                        <td>Mise à jour hebdomadaire des métriques de succès</td>
+                    </tr>
+                    <tr>
+                        <td>Formation</td>
+                        <td>Session dédiée pour les gérants pilotes</td>
+                    </tr>
+                    <tr>
+                        <td>Documentation</td>
+                        <td>Guide utilisateur complet</td>
+                    </tr>
+                    <tr>
+                        <td>Rapport final</td>
+                        <td>Analyse des résultats + recommandations pour la suite</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2>6. Prochaines Étapes</h2>
+            
+            <table class="next-steps-table">
+                <thead>
+                    <tr>
+                        <th style="width: 40px;">#</th>
+                        <th>Action</th>
+                        <th style="width: 120px;">Responsable</th>
+                        <th style="width: 140px;">Échéance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Sélection des 3 établissements pilotes</td>
+                        <td>A5</td>
+                        <td>Appel du 19 déc.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Confirmation accès API Veloce + OpenTable</td>
+                        <td>A5</td>
+                        <td>6 janvier</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Signature entente pilote</td>
+                        <td>A5 + TNT</td>
+                        <td>6 janvier</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Paiement frais pilote (1 500 $)</td>
+                        <td>A5</td>
+                        <td>Avant démarrage</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Kick-off projet</td>
+                        <td>TNT</td>
+                        <td>13 janvier 2025</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- On-Demand Features Page -->
+        <div class="page-break">
+            <h2>7. Fonctionnalités Sur Demande</h2>
+            <p>Au-delà du pilote, voici les modules qu'on peut développer selon vos priorités. Cochez ce qui vous intéresse — on scope ensemble.</p>
+            
+            <h3>👥 Gestion des Employés</h3>
+            <table class="feature-table">
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">Fonctionnalité</th>
+                        <th style="width: 50%;">Description</th>
+                        <th style="width: 20%; text-align: center;">Intérêt?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Portail employé self-service</strong></td>
+                        <td>App mobile où les employés voient leurs horaires, soumettent leurs disponibilités, demandent des congés</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Échange de shifts</strong></td>
+                        <td>Les employés proposent/acceptent des échanges entre eux — le gérant approuve en un clic</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gestion des disponibilités</strong></td>
+                        <td>Employés soumettent leurs disponibilités récurrentes, intégrées automatiquement aux suggestions</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fiches d'embauche numériques</strong></td>
+                        <td>Nouvel employé remplit sa fiche en ligne — champs obligatoires, validation automatique</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Signature documents</strong></td>
+                        <td>Politiques RH, adhésion REER, code de conduite — signés électroniquement par l'employé</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Suivi certifications</strong></td>
+                        <td>Alertes automatiques quand une certification expire (MAPAQ, RCR, etc.)</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>💬 Communication</h3>
+            <table class="feature-table">
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">Fonctionnalité</th>
+                        <th style="width: 50%;">Description</th>
+                        <th style="width: 20%; text-align: center;">Intérêt?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Messagerie d'équipe</strong></td>
+                        <td>Chat intégré — par établissement, par rôle, ou groupe personnalisé</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Annonces broadcast</strong></td>
+                        <td>Envoyer un message à tous les employés de tous les établissements en un clic</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Notifications intelligentes</strong></td>
+                        <td>Push/SMS/email automatiques pour rappels de shift, changements d'horaire, alertes</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Journal de bord gérant</strong></td>
+                        <td>Notes de shift partagées entre gérants — passation d'information structurée</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>⏱️ Temps & Présence</h3>
+            <table class="feature-table">
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">Fonctionnalité</th>
+                        <th style="width: 50%;">Description</th>
+                        <th style="width: 20%; text-align: center;">Intérêt?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Horodateur intégré</strong></td>
+                        <td>Clock-in/clock-out via app mobile ou tablette sur place — géolocalisation optionnelle</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Contrôle punch anticipé</strong></td>
+                        <td>Empêche les clock-in avant l'heure prévue — économies directes sur early punches</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Alertes overtime</strong></td>
+                        <td>Notification en temps réel quand un employé approche du seuil d'heures supplémentaires</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gestion des pauses</strong></td>
+                        <td>Suivi des pauses obligatoires — conformité aux normes du travail</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Export paie automatisé</strong></td>
+                        <td>Heures travaillées exportées directement vers votre système de paie</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>📊 Intelligence & Analytique</h3>
+            <table class="feature-table">
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">Fonctionnalité</th>
+                        <th style="width: 50%;">Description</th>
+                        <th style="width: 20%; text-align: center;">Intérêt?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Prévisions météo intégrées</strong></td>
+                        <td>Ajustements automatiques des suggestions basés sur la météo locale</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Événements locaux</strong></td>
+                        <td>Intégration calendrier événements (festivals, matchs) pour anticiper l'achalandage</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>P&L automatisé</strong></td>
+                        <td>États financiers mensuels générés automatiquement par établissement</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dashboard exécutif</strong></td>
+                        <td>Vue consolidée tous établissements — KPIs, alertes, tendances</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Rapports personnalisés</strong></td>
+                        <td>Rapports sur mesure exportables — par période, établissement, rôle</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>💰 Coûts & Inventaire</h3>
+            <table class="feature-table">
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">Fonctionnalité</th>
+                        <th style="width: 50%;">Description</th>
+                        <th style="width: 20%; text-align: center;">Intérêt?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Traitement factures IA</strong></td>
+                        <td>Photo de facture → extraction automatique → codes GL assignés → envoi comptabilité</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Suivi coût menu</strong></td>
+                        <td>Alerte quand le coût d'un item dépasse le seuil — suggestion d'ajustement prix</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Détection anomalies fournisseurs</strong></td>
+                        <td>Alerte automatique si prix fournisseur augmente de >10%</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gestion pourboires</strong></td>
+                        <td>Calcul et distribution automatique des pourboires selon vos règles</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>✅ Conformité</h3>
+            <table class="feature-table">
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">Fonctionnalité</th>
+                        <th style="width: 50%;">Description</th>
+                        <th style="width: 20%; text-align: center;">Intérêt?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Règles normes du travail</strong></td>
+                        <td>Validation automatique des horaires vs lois QC (repos minimum, heures max, etc.)</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Audit trail complet</strong></td>
+                        <td>Historique de tous les changements d'horaire — qui, quand, quoi</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Rapports conformité</strong></td>
+                        <td>Documentation prête pour inspection — heures, pauses, certifications</td>
+                        <td style="text-align: center;">☐</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="feature-note">
+                <strong>Comment ça fonctionne :</strong> Cochez les fonctionnalités qui vous intéressent. On priorise ensemble selon l'impact business et on les ajoute au roadmap post-pilote. Chaque module est développé spécifiquement pour A5 — pas du générique.
+            </div>
+            
+            <div class="bottom-line">
+                <div class="headline">Dans 12 mois, vous avez une plateforme que personne d'autre possède.</div>
+                <div class="subtext">Une intelligence qui apprend de <em>vos</em> 30 établissements. Un avantage compétitif qu'on ne peut pas acheter sur étagère.</div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="brand"><strong>La Plateforme A5</strong> · Propulsée par TNT Logics</div>
+            <div class="contact">anthony@tntlogics.ai · tntlogics.ai</div>
+        </div>
+    </div>
+</body>
+</html>
