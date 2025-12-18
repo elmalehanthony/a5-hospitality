@@ -780,6 +780,264 @@
             font-size: 13px;
             border-radius: 0 8px 8px 0;
         }
+        
+        /* ==================== */
+        /* MOBILE RESPONSIVE CSS */
+        /* ==================== */
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 24px 16px;
+            }
+            
+            .header h1 {
+                font-size: 28px;
+            }
+            
+            .header .subtitle {
+                font-size: 14px;
+            }
+            
+            .vision-block {
+                padding: 24px 20px;
+            }
+            
+            .vision-block .quote {
+                font-size: 17px;
+            }
+            
+            .vision-block .subtext {
+                font-size: 13px;
+            }
+            
+            /* Context grid - 2x2 on mobile */
+            .context-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .context-item {
+                padding: 12px 16px;
+                border-bottom: 1px solid var(--border);
+            }
+            
+            .context-item:nth-child(odd) {
+                border-right: 1px solid var(--border);
+            }
+            
+            .context-item:nth-child(even) {
+                border-right: none;
+            }
+            
+            .context-item:nth-last-child(-n+2) {
+                border-bottom: none;
+            }
+            
+            .context-item[style*="grid-column: span 2"] {
+                grid-column: span 2;
+            }
+            
+            .context-item .value {
+                font-size: 16px;
+            }
+            
+            /* Flow diagram - vertical on mobile */
+            .flow-header,
+            .flow-body {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .flow-header .arrow,
+            .flow-body .arrow {
+                transform: rotate(90deg);
+                padding: 4px 0;
+            }
+            
+            .flow-header .step {
+                padding: 10px 16px;
+            }
+            
+            .flow-body {
+                padding: 16px;
+            }
+            
+            .flow-body .step-content {
+                padding: 8px 0;
+            }
+            
+            /* Example box - stack on mobile */
+            .example-box .row {
+                grid-template-columns: 1fr;
+            }
+            
+            .example-box .label {
+                padding: 10px 16px;
+                font-size: 12px;
+            }
+            
+            .example-box .content {
+                padding: 10px 16px;
+                font-size: 13px;
+            }
+            
+            /* Dashboard mockup */
+            .dashboard-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+                padding: 12px 16px;
+            }
+            
+            .kpi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .kpi-card {
+                padding: 16px 12px;
+                border-bottom: 1px solid var(--border);
+            }
+            
+            .kpi-card:nth-child(odd) {
+                border-right: 1px solid var(--border);
+            }
+            
+            .kpi-card:nth-child(even) {
+                border-right: none;
+            }
+            
+            .kpi-card:nth-last-child(-n+2) {
+                border-bottom: none;
+            }
+            
+            .kpi-card .value {
+                font-size: 22px;
+            }
+            
+            .kpi-card .label {
+                font-size: 10px;
+            }
+            
+            .ai-alert {
+                padding: 14px 16px;
+            }
+            
+            /* Tables - horizontal scroll wrapper */
+            .table-wrapper {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                margin: 16px 0;
+            }
+            
+            .data-table,
+            .two-col-table,
+            .criteria-table,
+            .next-steps-table,
+            .comparison-table,
+            .schedule-table,
+            .feature-table {
+                min-width: 500px;
+            }
+            
+            .data-table th,
+            .data-table td,
+            .two-col-table th,
+            .two-col-table td {
+                padding: 10px 12px;
+                font-size: 12px;
+            }
+            
+            .two-col-table td:first-child {
+                width: 120px;
+            }
+            
+            /* Comparison table - stack on mobile */
+            .comparison-table {
+                min-width: unset;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 12px;
+                font-size: 12px;
+            }
+            
+            /* Differentiator */
+            .differentiator {
+                padding: 16px 18px;
+                font-size: 14px;
+            }
+            
+            /* Bottom line */
+            .bottom-line {
+                padding: 20px 16px;
+            }
+            
+            .bottom-line .headline {
+                font-size: 16px;
+            }
+            
+            .bottom-line .subtext {
+                font-size: 13px;
+            }
+            
+            /* Feature note */
+            .feature-note {
+                padding: 14px 16px;
+                font-size: 12px;
+            }
+            
+            /* Page break spacing */
+            .page-break {
+                margin-top: 32px;
+                padding-top: 32px;
+            }
+            
+            h2 {
+                font-size: 16px;
+                margin: 32px 0 12px 0;
+            }
+            
+            h3 {
+                font-size: 13px;
+                margin: 20px 0 10px 0;
+            }
+            
+            p {
+                font-size: 14px;
+            }
+            
+            .note {
+                font-size: 11px;
+            }
+            
+            .mockup-caption {
+                font-size: 11px;
+            }
+        }
+        
+        /* Extra small screens */
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 12px;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .vision-block .quote {
+                font-size: 15px;
+            }
+            
+            .context-item .value {
+                font-size: 15px;
+            }
+            
+            .kpi-card .value {
+                font-size: 20px;
+            }
+        }
     </style>
 </head>
 <body>
